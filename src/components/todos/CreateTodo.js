@@ -38,4 +38,12 @@ const mapDispatchToProps = dispatch => ({
   addTodo: formData => dispatch({ type: 'ADD_TODO', payload: formData })
 })
 
+handleSubmit = event => {
+  event.preventDefault();
+  this.props.addTodo(this.state)
+  this.setState({
+    text: '',
+  })
+}
+
 export default connect(null, mapDispatchToProps)(CreateTodo);
